@@ -1,0 +1,514 @@
+SQL> 
+SQL> --------------------------------------------------------------------------------
+SQL> ----------- 1. Dropping all tables ---------------------------------------------
+SQL> DROP TABLE operation;
+
+Table OPERATION dropped.
+
+SQL> DROP TABLE employee;
+
+Table EMPLOYEE dropped.
+
+SQL> DROP TABLE branch;
+
+Table BRANCH dropped.
+
+SQL> DROP TABLE transaction;
+
+Table TRANSACTION dropped.
+
+SQL> DROP TABLE account;
+
+Table ACCOUNT dropped.
+
+SQL> DROP TABLE customer;
+
+Table CUSTOMER dropped.
+
+SQL> 
+SQL> -- Dropping all sequence
+SQL> DROP SEQUENCE seq_emp_id;
+
+Sequence SEQ_EMP_ID dropped.
+
+SQL> DROP SEQUENCE seq_br_id;
+
+Sequence SEQ_BR_ID dropped.
+
+SQL> DROP SEQUENCE seq_transc_id;
+
+Sequence SEQ_TRANSC_ID dropped.
+
+SQL> DROP SEQUENCE seq_acct_id;
+
+Sequence SEQ_ACCT_ID dropped.
+
+SQL> DROP SEQUENCE seq_cust_id;
+
+Sequence SEQ_CUST_ID dropped.
+
+SQL> 
+SQL> --------------------------------------------------------------------------------
+SQL> ------------- 2. Create tables for banking system ---------------------------------
+SQL> CREATE TABLE customer
+  2  ( cust_id NUMBER(10) NOT NULL,
+  3    f_name VARCHAR2(50) NOT NULL,
+  4    l_name VARCHAR2(50) NOT NULL,
+  5    dob DATE NOT NULL,
+  6    address VARCHAR2(100) NOT NULL,
+  7    ph_number CHAR(10) NOT NULL,
+  8    email VARCHAR2(50) NOT NULL,
+  9    CONSTRAINT customer_pk PRIMARY KEY (cust_id)
+ 10  );
+
+Table CUSTOMER created.
+
+SQL> 
+SQL> CREATE TABLE account 
+  2  ( account_id NUMBER(10) NOT NULL,
+  3    balance DECIMAL(38,2) CHECK (balance >= 0) NOT NULL,
+  4    acct_type VARCHAR2(50) CHECK (acct_type IN ('Savings', 'Checking', 'Loan')) NOT NULL,
+  5    creat_date DATE NOT NULL,
+  6    status VARCHAR2(50) NOT NULL,
+  7    fk_customer_cust_id NUMBER(10),
+  8    CONSTRAINT account_pk PRIMARY KEY (account_id),
+  9    CONSTRAINT fk_customer FOREIGN KEY (fk_customer_cust_id)
+ 10      REFERENCES customer(cust_id)
+ 11      ON DELETE CASCADE
+ 12  );
+
+Table ACCOUNT created.
+
+SQL> 
+SQL> CREATE TABLE transaction
+  2  ( transc_id NUMBER(10) NOT NULL,
+  3    amount DECIMAL(38,2) NOT NULL,
+  4    transc_type varchar2(50) CHECK (transc_type IN ('Deposit', 'Withdrawal', 'Transfer')) NOT NULL,
+  5    timestamp TIMESTAMP NOT NULL,
+  6    description VARCHAR2(200) NOT NULL,
+  7    fk_account_account_id NUMBER(10) NOT NULL,
+  8    CONSTRAINT transaction_pk PRIMARY KEY (transc_id),
+  9    CONSTRAINT fk_account FOREIGN KEY (fk_account_account_id) REFERENCES account(account_id)
+ 10    ON DELETE CASCADE
+ 11  );
+
+Table TRANSACTION created.
+
+SQL> 
+SQL> CREATE TABLE branch
+  2  ( br_id NUMBER(10) NOT NULL,
+  3    br_name VARCHAR2(50) NOT NULL,
+  4    location VARCHAR2(50) NOT NULL,
+  5    mgr_name VARCHAR2(50) NOT NULL,
+  6    ph_number CHAR(10) NOT NULL,
+  7    est_date DATE,
+  8    CONSTRAINT branch_pk PRIMARY KEY (br_id)
+  9  );
+
+Table BRANCH created.
+
+SQL> 
+SQL> CREATE TABLE operation
+  2  ( date_created TIMESTAMP NOT NULL,
+  3    created_by varchar2(50) NOT NULL,
+  4    channel VARCHAR(50) NOT NULL,
+  5    appr_code VARCHAR2(50) NULL,
+  6    op_status VARCHAR2(50) NOT NULL,
+  7    fk_branch_br_id NUMBER(10) NOT NULL,
+  8    fk_transaction_transc_id NUMBER(10) NOT NULL,
+  9    CONSTRAINT operation_pk PRIMARY KEY (fk_branch_br_id, fk_transaction_transc_id),
+ 10    CONSTRAINT fk_branch_par FOREIGN KEY (fk_branch_br_id) REFERENCES branch(br_id) ON DELETE CASCADE,
+ 11    CONSTRAINT fk_transaction FOREIGN KEY (fk_transaction_transc_id) REFERENCES transaction(transc_id) ON DELETE CASCADE
+ 12  );
+
+Table OPERATION created.
+
+SQL> 
+SQL> CREATE TABLE employee
+  2  ( emp_id NUMBER(10) NOT NULL,
+  3    f_name VARCHAR2(50) NOT NULL,
+  4    l_name VARCHAR2(50) NOT NULL,
+  5    email VARCHAR2(50) NOT NULL,
+  6    position VARCHAR2(50) NOT NULL,
+  7    hired_date DATE NOT NULL,
+  8    fk_branch_br_id NUMBER(10),
+  9    CONSTRAINT employee_pk PRIMARY KEY (emp_id),
+ 10    CONSTRAINT fk_branch FOREIGN KEY (fk_branch_br_id) REFERENCES branch(br_id)
+ 11    ON DELETE CASCADE
+ 12  );
+
+Table EMPLOYEE created.
+
+SQL> 
+SQL> 
+SQL> --------------------------------------------------------------------------------
+SQL> ----- 3. Create indexes for possible natural key, foreign key columns and others
+SQL> 
+SQL> -- Create unique index on natural key columns.
+SQL> CREATE UNIQUE INDEX idx_emp_fname_lname ON employee(f_name, l_name);
+
+INDEX IDX_EMP_FNAME_LNAME created.
+
+SQL> CREATE UNIQUE INDEX idx_cust_fname_lname ON customer(f_name, l_name);
+
+INDEX IDX_CUST_FNAME_LNAME created.
+
+SQL> -- Create index on foreign key columns. 
+SQL> CREATE INDEX idx_acct_cust_id ON account(fk_customer_cust_id);
+
+Index IDX_ACCT_CUST_ID created.
+
+SQL> CREATE INDEX idx_transc_acct_id ON transaction(fk_account_account_id);
+
+Index IDX_TRANSC_ACCT_ID created.
+
+SQL> CREATE INDEX idx_op_transc_id ON operation(fk_transaction_transc_id);
+
+Index IDX_OP_TRANSC_ID created.
+
+SQL> CREATE INDEX idx_op_br_id ON operation(fk_branch_br_id);
+
+Index IDX_OP_BR_ID created.
+
+SQL> CREATE INDEX idx_emp_br_id ON employee(fk_branch_br_id);
+
+Index IDX_EMP_BR_ID created.
+
+SQL> -- Create index on other columns that will be frequently used as query filters
+SQL> CREATE INDEX idx_balance ON account(balance);
+
+Index IDX_BALANCE created.
+
+SQL> CREATE INDEX idx_transc_type ON transaction(transc_type);
+
+Index IDX_TRANSC_TYPE created.
+
+SQL> CREATE INDEX idx_op_created_by ON operation(created_by);
+
+Index IDX_OP_CREATED_BY created.
+
+SQL> 
+SQL> 
+SQL> ---------------------------------------------------------------------------------
+SQL> ----- 4. Create views that are appropriate to support business requirements -----
+SQL> /*
+SQL>Business purpose: This view simplifies access to all accounts that are currently active. It is useful for operational dashboards and reporting
+SQL>*/
+SQL> -- View showing all accounts with 'Active' status
+SQL> CREATE OR REPLACE VIEW view_active_acct AS
+  2    SELECT account_id, fk_customer_cust_id, acct_type, balance, creat_date
+  3    FROM account
+  4    Where status = 'Active';
+
+View VIEW_ACTIVE_ACCT created.
+
+SQL> 
+SQL> /*
+SQL>Business purpose: This view provides a consolidated report of the customer details and the sum of all their account balances. 
+SQL>                  It is useful for customer and financial analysis
+SQL>*/
+SQL> -- This view combines customer details with their account balances
+SQL> CREATE OR REPLACE VIEW view_cust_acct_summary AS
+  2    SELECT c.cust_id, c.f_name, c.l_name, c.email, c.ph_number, NVL(SUM(a.balance), 0) AS total_balance
+  3    FROM customer c LEFT JOIN account a ON c.cust_id = a.fk_customer_cust_id
+  4    GROUP BY c.cust_id, c.f_name, c.l_name, c.email, c.ph_number;
+
+View VIEW_CUST_ACCT_SUMMARY created.
+
+SQL> 
+SQL>   /*
+SQL>  Business purpose: This view provides crucial information about each branch. It will help allocate resources proportional
+SQL>                    Also, it is useful to further understand the causes of frequentation to make better decision.
+SQL>  */
+SQL> -- This view consist to know the frequentation of each branch by customers
+SQL> CREATE OR REPLACE VIEW view_br_performance AS
+  2    SELECT t.location, t.br_name, t.channel, COUNT(t.location) AS number_of_frequention
+  3    FROM (
+  4      SELECT b.location, b.br_name, o.channel
+  5      FROM branch b INNER JOIN operation o ON b.br_id = o.fk_branch_br_id
+  6      WHERE o.channel IN ('Teller', 'ATM')) t
+  7    GROUP BY t.location, t.br_name, t.channel;
+
+View VIEW_BR_PERFORMANCE created.
+
+SQL> 
+SQL> 
+SQL> ------------------------------------------------------------------------------------
+SQL> ----- 5. Create sequences for the primary keys created in each entities ------------
+SQL> 
+SQL> -- Generate values for cust_id (primary key of customer entity) through sequence
+SQL> CREATE SEQUENCE seq_cust_id
+  2    MINVALUE 1
+  3    MAXVALUE 100
+  4    START WITH 1
+  5    INCREMENT BY 1
+  6    CACHE 20;
+
+Sequence SEQ_CUST_ID created.
+
+SQL> 
+SQL> -- Generate values for br_id (primary key of branch entity) through sequence
+SQL> CREATE SEQUENCE seq_br_id
+  2    MINVALUE 101
+  3    MAXVALUE 200
+  4    START WITH 101
+  5    INCREMENT BY 1
+  6    CACHE 20;
+
+Sequence SEQ_BR_ID created.
+
+SQL> 
+SQL> -- Generate values for emp_id (primary key of employee entity) through sequence
+SQL> CREATE SEQUENCE seq_emp_id
+  2    MINVALUE 201
+  3    MAXVALUE 400
+  4    START WITH 201
+  5    INCREMENT BY 1
+  6    CACHE 20;
+
+Sequence SEQ_EMP_ID created.
+
+SQL> 
+SQL> -- Generate values for account_id (primary key of account entity) through sequence
+SQL> CREATE SEQUENCE seq_acct_id
+  2    MINVALUE 401
+  3    MAXVALUE 600
+  4    START WITH 401
+  5    INCREMENT BY 1
+  6    CACHE 20;
+
+Sequence SEQ_ACCT_ID created.
+
+SQL> 
+SQL> -- Generate values for transc_id (primary key transaction entity) through sequence
+SQL> CREATE SEQUENCE seq_transc_id
+  2    MINVALUE 601
+  3    MAXVALUE 800
+  4    START WITH 601
+  5    INCREMENT BY 1
+  6    CACHE 20;
+
+Sequence SEQ_TRANSC_ID created.
+
+SQL> 
+SQL> 
+SQL> ------------------------------------------------------------------------------------
+SQL> ----- 6. Create triggers ----------------------------------------------------------
+SQL> CREATE OR REPLACE TRIGGER trigger_cust_id
+  2  BEFORE INSERT ON customer
+  3  FOR EACH ROW
+  4  BEGIN
+  5    IF :NEW.cust_id IS NULL THEN
+  6      :NEW.cust_id := seq_cust_id.NEXTVAL;
+  7    END IF;
+  8  END;
+  9  /
+
+Trigger TRIGGER_CUST_ID compiled
+
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER trigger_acct_id
+  2  BEFORE INSERT ON account
+  3  FOR EACH ROW
+  4  BEGIN
+  5    IF :NEW.account_id IS NULL THEN
+  6      :NEW.account_id := seq_acct_id.NEXTVAL;
+  7    END IF;
+  8  END;
+  9  /
+
+Trigger TRIGGER_ACCT_ID compiled
+
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER trigger_emp_id
+  2  BEFORE INSERT ON employee
+  3  FOR EACH ROW
+  4  BEGIN
+  5    IF :NEW.emp_id IS NULL THEN
+  6      :NEW.emp_id := seq_emp_id.NEXTVAL;
+  7    END IF;
+  8  END;
+  9  /
+
+Trigger TRIGGER_EMP_ID compiled
+
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER trigger_br_id
+  2  BEFORE INSERT ON branch
+  3  FOR EACH ROW
+  4  BEGIN
+  5    IF :NEW.br_id IS NULL THEN
+  6      :NEW.br_id := seq_br_id.NEXTVAL;
+  7    END IF;
+  8  END;
+  9  /
+
+Trigger TRIGGER_BR_ID compiled
+
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER trigger_transc_id
+  2  BEFORE INSERT ON transaction
+  3  FOR EACH ROW
+  4  BEGIN
+  5    IF :NEW.transc_id IS NULL THEN
+  6      :NEW.transc_id := seq_transc_id.NEXTVAL;
+  7    END IF;
+  8  END;
+  9  /
+
+Trigger TRIGGER_TRANSC_ID compiled
+
+SQL> 
+SQL> /* The business value of this trigger is to ensure auditability for transaction records.
+SQL>-- It automatically logs the staff who performed the transaction and when, helping meet compliance and tracking requirements.
+SQL>*/
+SQL> CREATE OR REPLACE TRIGGER trg_operation_audit
+  2  BEFORE INSERT ON operation
+  3  FOR EACH ROW
+  4  BEGIN
+  5    :NEW.date_created := CAST(SYSDATE AS TIMESTAMP);
+  6  END;
+  7  /
+
+Trigger TRG_OPERATION_AUDIT compiled
+
+SQL> 
+SQL> /* The business value of this trigger is to ensure auditability of when the customer initiates the transaction.
+SQL>   It also ensures that the bank meet compliance and tracking requirements.
+SQL>*/
+SQL> CREATE OR REPLACE TRIGGER trg_transaction_audit
+  2  BEFORE INSERT ON Transaction
+  3  FOR EACH ROW
+  4  BEGIN
+  5    :NEW.timestamp := CAST(SYSDATE AS TIMESTAMP);
+  6  END;
+  7  /
+
+Trigger TRG_TRANSACTION_AUDIT compiled
+
+SQL> 
+SQL> 
+SQL> -- To confirm all your tables are present
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------
+COURSE
+ENROLLMENT
+GRADE
+GRADE_CONVERSION
+GRADE_TYPE
+GRADE_TYPE_WEIGHT
+INSTRUCTOR
+SECTION
+STUDENT
+ZIPCODE
+OPERATION
+
+TABLE_NAME                                                                                                                      
+--------------------------------------------------------------------------------------------------------------------------------
+EMPLOYEE
+CUSTOMER
+ACCOUNT
+TRANSACTION
+BRANCH
+
+16 rows selected. 
+
+SQL> 
+SQL> -- To check the status and types of all your created objects (valid/invalid)
+SQL> SELECT OBJECT_NAME, STATUS, CREATED, LAST_DDL_TIME FROM USER_OBJECTS;
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+INSTRUCTOR_ID_SEQ                                                                                                                VALID   16-FEB-22 16-FEB-22
+SECTION_ID_SEQ                                                                                                                   VALID   16-FEB-22 16-FEB-22
+STUDENT_ID_SEQ                                                                                                                   VALID   16-FEB-22 16-FEB-22
+COURSE_NO_SEQ                                                                                                                    VALID   16-FEB-22 16-FEB-22
+COURSE                                                                                                                           VALID   16-FEB-22 16-FEB-22
+CRSE_CRSE_FK_I                                                                                                                   VALID   16-FEB-22 16-FEB-22
+CRSE_PK                                                                                                                          VALID   16-FEB-22 16-FEB-22
+ENROLLMENT                                                                                                                       VALID   16-FEB-22 16-FEB-22
+ENR_SECT_FK_I                                                                                                                    VALID   16-FEB-22 16-FEB-22
+ENR_PK                                                                                                                           VALID   16-FEB-22 16-FEB-22
+GRADE                                                                                                                            VALID   16-FEB-22 16-FEB-22
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+GR_GRTW_FK_I                                                                                                                     VALID   16-FEB-22 16-FEB-22
+GR_PK                                                                                                                            VALID   16-FEB-22 16-FEB-22
+GRADE_CONVERSION                                                                                                                 VALID   16-FEB-22 16-FEB-22
+GRCON_PK                                                                                                                         VALID   16-FEB-22 16-FEB-22
+GRADE_TYPE                                                                                                                       VALID   16-FEB-22 16-FEB-22
+GRTYP_PK                                                                                                                         VALID   16-FEB-22 16-FEB-22
+GRADE_TYPE_WEIGHT                                                                                                                VALID   16-FEB-22 16-FEB-22
+GRTW_GRTYP_FK_I                                                                                                                  VALID   16-FEB-22 16-FEB-22
+GRTW_PK                                                                                                                          VALID   16-FEB-22 16-FEB-22
+INSTRUCTOR                                                                                                                       VALID   16-FEB-22 16-FEB-22
+INST_ZIP_FK_I                                                                                                                    VALID   16-FEB-22 16-FEB-22
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+INST_PK                                                                                                                          VALID   16-FEB-22 16-FEB-22
+SECTION                                                                                                                          VALID   16-FEB-22 16-FEB-22
+SECT_CRSE_FK_I                                                                                                                   VALID   16-FEB-22 16-FEB-22
+SECT_INST_FK_I                                                                                                                   VALID   16-FEB-22 16-FEB-22
+SECT_PK                                                                                                                          VALID   16-FEB-22 16-FEB-22
+SECT_SECT2_UK                                                                                                                    VALID   16-FEB-22 16-FEB-22
+STUDENT                                                                                                                          VALID   16-FEB-22 16-FEB-22
+STU_ZIP_FK_I                                                                                                                     VALID   16-FEB-22 16-FEB-22
+STU_PK                                                                                                                           VALID   16-FEB-22 16-FEB-22
+ZIPCODE                                                                                                                          VALID   16-FEB-22 16-FEB-22
+ZIP_PK                                                                                                                           VALID   16-FEB-22 16-FEB-22
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+VIEW_ACTIVE_ACCT                                                                                                                 VALID   14-JUL-25 05-AUG-25
+OPERATION_PK                                                                                                                     VALID   05-AUG-25 05-AUG-25
+OPERATION                                                                                                                        VALID   05-AUG-25 05-AUG-25
+EMPLOYEE                                                                                                                         VALID   05-AUG-25 05-AUG-25
+EMPLOYEE_PK                                                                                                                      VALID   05-AUG-25 05-AUG-25
+IDX_EMP_FNAME_LNAME                                                                                                              VALID   05-AUG-25 05-AUG-25
+IDX_CUST_FNAME_LNAME                                                                                                             VALID   05-AUG-25 05-AUG-25
+IDX_ACCT_CUST_ID                                                                                                                 VALID   05-AUG-25 05-AUG-25
+IDX_TRANSC_ACCT_ID                                                                                                               VALID   05-AUG-25 05-AUG-25
+IDX_OP_TRANSC_ID                                                                                                                 VALID   05-AUG-25 05-AUG-25
+IDX_OP_BR_ID                                                                                                                     VALID   05-AUG-25 05-AUG-25
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+IDX_EMP_BR_ID                                                                                                                    VALID   05-AUG-25 05-AUG-25
+IDX_BALANCE                                                                                                                      VALID   05-AUG-25 05-AUG-25
+IDX_TRANSC_TYPE                                                                                                                  VALID   05-AUG-25 05-AUG-25
+IDX_OP_CREATED_BY                                                                                                                VALID   05-AUG-25 05-AUG-25
+SEQ_CUST_ID                                                                                                                      VALID   05-AUG-25 05-AUG-25
+SEQ_BR_ID                                                                                                                        VALID   05-AUG-25 05-AUG-25
+SEQ_EMP_ID                                                                                                                       VALID   05-AUG-25 05-AUG-25
+SEQ_ACCT_ID                                                                                                                      VALID   05-AUG-25 05-AUG-25
+SEQ_TRANSC_ID                                                                                                                    VALID   05-AUG-25 05-AUG-25
+VIEW_CUST_ACCT_SUMMARY                                                                                                           VALID   14-JUL-25 05-AUG-25
+VIEW_BR_PERFORMANCE                                                                                                              VALID   14-JUL-25 05-AUG-25
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+TRG_OPERATION_AUDIT                                                                                                              VALID   05-AUG-25 05-AUG-25
+TRIGGER_EMP_ID                                                                                                                   VALID   05-AUG-25 05-AUG-25
+TRIGGER_BR_ID                                                                                                                    VALID   05-AUG-25 05-AUG-25
+TRIGGER_TRANSC_ID                                                                                                                VALID   05-AUG-25 05-AUG-25
+TRG_TRANSACTION_AUDIT                                                                                                            VALID   05-AUG-25 05-AUG-25
+TRIGGER_ACCT_ID                                                                                                                  VALID   05-AUG-25 05-AUG-25
+TRIGGER_CUST_ID                                                                                                                  VALID   05-AUG-25 05-AUG-25
+CUSTOMER                                                                                                                         VALID   05-AUG-25 05-AUG-25
+CUSTOMER_PK                                                                                                                      VALID   05-AUG-25 05-AUG-25
+ACCOUNT                                                                                                                          VALID   05-AUG-25 05-AUG-25
+ACCOUNT_PK                                                                                                                       VALID   05-AUG-25 05-AUG-25
+
+OBJECT_NAME                                                                                                                      STATUS  CREATED   LAST_DDL_
+-------------------------------------------------------------------------------------------------------------------------------- ------- --------- ---------
+TRANSACTION                                                                                                                      VALID   05-AUG-25 05-AUG-25
+TRANSACTION_PK                                                                                                                   VALID   05-AUG-25 05-AUG-25
+BRANCH                                                                                                                           VALID   05-AUG-25 05-AUG-25
+BRANCH_PK                                                                                                                        VALID   05-AUG-25 05-AUG-25
+
+70 rows selected. 
+

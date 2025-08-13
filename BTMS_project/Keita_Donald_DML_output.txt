@@ -1,0 +1,914 @@
+SQL> 
+SQL> set echo on;
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate CUSTOMER table withn sample data. CUSTOMER data consists of 10 rows.
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Alicia', 'Mills', TO_DATE('1991-05-24', 'YYYY-MM-DD'), '19 Garden Ave, Austin', '5125551001', 'alicia.mills@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Brian', 'Tucker', TO_DATE('1988-11-07', 'YYYY-MM-DD'), '82 Ridge Rd, Denver', '3035554521', 'brian.tucker@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Clara', 'Nguyen', TO_DATE('1995-02-16', 'YYYY-MM-DD'), '34 Willow St, Seattle', '2065553122', 'clara.nguyen@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Derek', 'Ford', TO_DATE('1990-09-12', 'YYYY-MM-DD'), '106 Main Blvd, Miami', '7865559982', 'derek.ford@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Ella', 'Brown', TO_DATE('1986-03-04', 'YYYY-MM-DD'), '501 Pacific St, Portland', '5035557411', 'ella.brown@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Frank', 'Lopez', TO_DATE('1993-07-19', 'YYYY-MM-DD'), '212 Walnut Ln, Chicago', '7735552188', 'frank.lopez@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Grace', 'Kim', TO_DATE('1989-12-02', 'YYYY-MM-DD'), '45 Sunset Ave, LA', '2135553011', 'grace.kim@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Henry', 'Singh', TO_DATE('1992-06-28', 'YYYY-MM-DD'), '87 Liberty St, Boston', '6175559003', 'henry.singh@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Isla', 'Patel', TO_DATE('1994-08-10', 'YYYY-MM-DD'), '15 Beacon Way, New York', '7185556020', 'isla.patel@example.com');
+
+1 row inserted.
+
+SQL> INSERT INTO CUSTOMER (f_name, l_name, dob, address, ph_number, email) VALUES ('Jack', 'Davis', TO_DATE('1996-10-05', 'YYYY-MM-DD'), '68 Pine Circle, Dallas', '2145557777', 'jack.davis@example.com');
+
+1 row inserted.
+
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate ACCOUNT table withn sample data. ACCOUNT data consists of 25 rows.
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (2300.50, 'Savings', TO_DATE('2022-01-10', 'YYYY-MM-DD'), 'Active', 1);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (150.75, 'Checking', TO_DATE('2022-03-22', 'YYYY-MM-DD'), 'Active', 2);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (6700.00, 'Loan', TO_DATE('2021-09-05', 'YYYY-MM-DD'), 'Closed', 3);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (980.20, 'Savings', TO_DATE('2022-07-13', 'YYYY-MM-DD'), 'Active', 4);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (3120.00, 'Checking', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'Active', 5);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (4900.00, 'Loan', TO_DATE('2021-12-15', 'YYYY-MM-DD'), 'Delinquent', 6);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (1125.35, 'Savings', TO_DATE('2022-04-22', 'YYYY-MM-DD'), 'Active', 7);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (305.60, 'Checking', TO_DATE('2022-08-09', 'YYYY-MM-DD'), 'Frozen', 8);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (15000.00, 'Loan', TO_DATE('2021-06-21', 'YYYY-MM-DD'), 'Active', 9);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (220.10, 'Savings', TO_DATE('2023-03-11', 'YYYY-MM-DD'), 'Active', 10);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (705.90, 'Checking', TO_DATE('2022-02-28', 'YYYY-MM-DD'), 'Active', 1);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (9900.00, 'Loan', TO_DATE('2022-05-15', 'YYYY-MM-DD'), 'Active', 2);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (650.00, 'Savings', TO_DATE('2023-06-20', 'YYYY-MM-DD'), 'Active', 3);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (120.00, 'Checking', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 'Frozen', 4);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (4200.00, 'Loan', TO_DATE('2021-03-03', 'YYYY-MM-DD'), 'Closed', 5);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (1580.30, 'Savings', TO_DATE('2023-04-12', 'YYYY-MM-DD'), 'Active', 2);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (875.40, 'Checking', TO_DATE('2022-10-05', 'YYYY-MM-DD'), 'Active', 4);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (2400.00, 'Loan', TO_DATE('2020-12-01', 'YYYY-MM-DD'), 'Active', 6);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (130.20, 'Savings', TO_DATE('2023-07-01', 'YYYY-MM-DD'), 'Active', 8);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (395.90, 'Checking', TO_DATE('2021-08-30', 'YYYY-MM-DD'), 'Closed', 9);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (7600.00, 'Loan', TO_DATE('2023-05-23', 'YYYY-MM-DD'), 'Active', 10);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (999.99, 'Savings', TO_DATE('2022-11-18', 'YYYY-MM-DD'), 'Active', 2);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (543.21, 'Checking', TO_DATE('2023-02-14', 'YYYY-MM-DD'), 'Frozen', 3);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (8200.00, 'Loan', TO_DATE('2021-01-01', 'YYYY-MM-DD'), 'Delinquent', 5);
+
+1 row inserted.
+
+SQL> INSERT INTO ACCOUNT (balance, acct_type, creat_date, status, fk_customer_cust_id) VALUES (510.00, 'Savings', TO_DATE('2023-08-08', 'YYYY-MM-DD'), 'Active', 1);
+
+1 row inserted.
+
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate TRANSACTION table withn sample data. TRANSACTION data consists of 15 rows.
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (200.00, 'Deposit', 'Initial deposit', 401);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES(100.00, 'Withdrawal', 'ATM withdrawal', 402);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (300.00, 'Transfer', 'Transfer to savings', 403);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (50.00, 'Withdrawal', 'POS Purchase', 404);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (1000.00, 'Deposit', 'Salary', 405);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (25.00, 'Withdrawal', 'ATM fee', 403);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (500.00, 'Deposit', 'Freelance payment', 407);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (75.00, 'Transfer', 'Transfer to friend', 408);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (120.00, 'Deposit', 'Cash deposit', 403);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (200.00, 'Withdrawal', 'Bill payment', 410);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (500.00, 'Deposit', 'Initial deposit', 415);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (150.00, 'Withdrawal', 'ATM withdrawal', 423);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (300.00, 'Transfer', 'Transfer to savings', 420);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (75.00, 'Withdrawal', 'POS purchase', 423);
+
+1 row inserted.
+
+SQL> INSERT INTO TRANSACTION (amount, transc_type, description, fk_account_account_id) VALUES (600.00, 'Transfer', 'Loan repayment', 425);
+
+1 row inserted.
+
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate BRANCH table withn sample data. BRANCH data consists of 10 rows.
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Downtown', 'New York', 'Alice Miles', '2125551010', TO_DATE('2010-01-01','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Midtown', 'Chicago', 'Brian Lee', '3125551020', TO_DATE('2012-05-15','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Uptown', 'Houston', 'Carla Yu', '7135551030', TO_DATE('2014-03-20','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Central', 'Los Angeles', 'David Singh', '2135551040', TO_DATE('2011-08-10','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Westside', 'San Diego', 'Eva Knight', '6195551050', TO_DATE('2013-09-01','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Southpoint', 'Miami', 'Fred Owen', '3055551060', TO_DATE('2015-10-12','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Riverside', 'Denver', 'Grace Patel', '3035551070', TO_DATE('2016-07-21','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Northend', 'Seattle', 'Henry Kim', '2065551080', TO_DATE('2018-02-14','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Eastside', 'Atlanta', 'Isla Brown', '4045551090', TO_DATE('2017-04-25','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> INSERT INTO BRANCH (br_name, location, mgr_name, ph_number, est_date) VALUES ('Metro', 'Boston', 'Jack Chen', '6175551100', TO_DATE('2019-12-31','YYYY-MM-DD'));
+
+1 row inserted.
+
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate EMPLOYEE table withn sample data. EMPLOYEE data consists of 10 rows.
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Angela', 'White', 'awhite@example.com', 'Teller', TO_DATE('2018-04-01','YYYY-MM-DD'), 101);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES('Ben', 'King', 'bking@example.com', 'Manager', TO_DATE('2017-03-15','YYYY-MM-DD'), 102);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Chris', 'Davis', 'cdavis@example.com', 'Clerk', TO_DATE('2019-06-22','YYYY-MM-DD'), 103);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Diana', 'Morris', 'dmorris@example.com', 'Security', TO_DATE('2020-01-10','YYYY-MM-DD'), 104);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Ethan', 'Scott', 'escott@example.com', 'Teller', TO_DATE('2016-08-12','YYYY-MM-DD'), 105);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Fiona', 'Hill', 'fhill@example.com', 'Clerk', TO_DATE('2015-02-27','YYYY-MM-DD'), 106);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('George', 'Young', 'gyoung@example.com', 'Manager', TO_DATE('2014-11-03','YYYY-MM-DD'), 107);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Hannah', 'Green', 'hgreen@example.com', 'Clerk', TO_DATE('2021-05-18','YYYY-MM-DD'), 108);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Ian', 'Lopez', 'ilopez@example.com', 'Teller', TO_DATE('2013-09-09','YYYY-MM-DD'), 109);
+
+1 row inserted.
+
+SQL> INSERT INTO EMPLOYEE (f_name, l_name, email, position, hired_date, fk_branch_br_id) VALUES ('Judy', 'Turner', 'jturner@example.com', 'Manager', TO_DATE('2012-12-12','YYYY-MM-DD'), 110);
+
+1 row inserted.
+
+SQL> 
+SQL> -- DML- SQL INSERT statement that populate OPERATION table withn sample data. OPERATION data consists of 20 rows.
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Angela White', 'Teller', 'AP123', 'Approved', 101, 601);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ben King', 'ATM', 'AP124', 'Completed', 102, 602);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Chris Davis', 'Online', 'AP125', 'Approved', 103, 603);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Diana Morris', 'Teller', 'AP126', 'Rejected', 104, 604);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ethan Scott', 'ATM', 'AP127', 'Approved', 105, 605);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Fiona Hill', 'Online', 'AP128', 'Approved', 106, 606);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('George Young', 'Teller', 'AP129', 'Completed', 107, 607);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Hannah Green', 'ATM', 'AP130', 'Approved', 108, 608);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ian Lopez', 'Online', 'AP131', 'Approved', 109, 609);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Judy Turner', 'Teller', 'AP132', 'Pending', 110, 610);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Angela White', 'ATM', 'AP133', 'Approved', 101, 611);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ben King', 'Online', 'AP134', 'Completed', 102, 612);
+
+1 row inserted.
+
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Chris Davis', 'Teller', 'AP135', 'Approved', 103, 613);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Diana Morris', 'ATM', 'AP136', 'Completed', 104, 614);
+
+1 row inserted.
+
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ethan Scott', 'Online', 'AP137', 'Approved', 105, 615);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Fiona Hill', 'Teller', 'AP138', 'Rejected', 106, 601);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('George Young', 'ATM', 'AP139', 'Pending', 107, 602);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Hannah Green', 'Online', 'AP140', 'Completed', 108, 603);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Ian Lopez', 'Teller', 'AP141', 'Approved', 109, 604);
+
+1 row inserted.
+
+SQL>  --
+SQL> INSERT INTO OPERATION (created_by, channel, appr_code, op_status, fk_branch_br_id, fk_transaction_transc_id) VALUES ('Judy Turner', 'ATM', 'AP142', 'Approved', 110, 605);
+
+1 row inserted.
+
+SQL>  --
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> /*
+SQL>20 SQL Queries : 12 Basic, 8 Advanced
+SQL>*/
+SQL> -- Query 1: select all columns and all rows from one table 
+SQL> -- Business purpose: this query selects all information about all customers
+SQL> select * from customer;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                             
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- --------------------------------------------------
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                          
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                          
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                          
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                            
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                            
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                           
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                             
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                           
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                            
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                            
+
+10 rows selected. 
+
+SQL> 
+SQL> -- Query 2: Select five columns and all rows from one table
+SQL> -- Business purpose: this query selects all information from five attributes about all branch
+SQL> select br_name as "Branch Name", location as "Location", mgr_name as "Manager Name", ph_number as "Phone Number", est_date as "Establishment Date" from branch;
+
+Branch Name                                        Location                                           Manager Name                                       Phone Numb Establish
+-------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ---------- ---------
+Downtown                                           New York                                           Alice Miles                                        2125551010 01-JAN-10
+Midtown                                            Chicago                                            Brian Lee                                          3125551020 15-MAY-12
+Uptown                                             Houston                                            Carla Yu                                           7135551030 20-MAR-14
+Central                                            Los Angeles                                        David Singh                                        2135551040 10-AUG-11
+Westside                                           San Diego                                          Eva Knight                                         6195551050 01-SEP-13
+Southpoint                                         Miami                                              Fred Owen                                          3055551060 12-OCT-15
+Riverside                                          Denver                                             Grace Patel                                        3035551070 21-JUL-16
+Northend                                           Seattle                                            Henry Kim                                          2065551080 14-FEB-18
+Eastside                                           Atlanta                                            Isla Brown                                         4045551090 25-APR-17
+Metro                                              Boston                                             Jack Chen                                          6175551100 31-DEC-19
+
+10 rows selected. 
+
+SQL> 
+SQL> --Query 3: Select all columns from all rows from one view 
+SQL> -- Business purpose: this selects all information about a created view called view_active_acct
+SQL> select * from view_active_acct;
+
+ACCOUNT_ID FK_CUSTOMER_CUST_ID ACCT_TYPE                                             BALANCE CREAT_DAT
+---------- ------------------- -------------------------------------------------- ---------- ---------
+       401                   1 Savings                                                2300.5 10-JAN-22
+       402                   2 Checking                                               150.75 22-MAR-22
+       404                   4 Savings                                                 980.2 13-JUL-22
+       405                   5 Checking                                                 3120 01-JAN-23
+       407                   7 Savings                                               1125.35 22-APR-22
+       409                   9 Loan                                                    15000 21-JUN-21
+       410                  10 Savings                                                 220.1 11-MAR-23
+       411                   1 Checking                                                705.9 28-FEB-22
+       412                   2 Loan                                                     9900 15-MAY-22
+       413                   3 Savings                                                   650 20-JUN-23
+       416                   2 Savings                                                1580.3 12-APR-23
+
+ACCOUNT_ID FK_CUSTOMER_CUST_ID ACCT_TYPE                                             BALANCE CREAT_DAT
+---------- ------------------- -------------------------------------------------- ---------- ---------
+       417                   4 Checking                                                875.4 05-OCT-22
+       418                   6 Loan                                                     2400 01-DEC-20
+       419                   8 Savings                                                 130.2 01-JUL-23
+       421                  10 Loan                                                     7600 23-MAY-23
+       422                   2 Savings                                                999.99 18-NOV-22
+       425                   1 Savings                                                   510 08-AUG-23
+
+17 rows selected. 
+
+SQL> 
+SQL> --Query 4: Using a join on 2 tables, select all columns and all rows from the tables without the use of a Cartesian product 
+SQL> -- Business purpose: this query joins all information from two table where there is a matching value on the customer id
+SQL> select * from customer c inner join account a on c.cust_id = a.fk_customer_cust_id;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                              ACCOUNT_ID    BALANCE ACCT_TYPE                                          CREAT_DAT STATUS                                             FK_CUSTOMER_CUST_ID
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- -------------------------------------------------- ---------- ---------- -------------------------------------------------- --------- -------------------------------------------------- -------------------
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                                  401     2300.5 Savings                                            10-JAN-22 Active                                                               1
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                                  411      705.9 Checking                                           28-FEB-22 Active                                                               1
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                                  425        510 Savings                                            08-AUG-23 Active                                                               1
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                                  402     150.75 Checking                                           22-MAR-22 Active                                                               2
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                                  412       9900 Loan                                               15-MAY-22 Active                                                               2
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                                  416     1580.3 Savings                                            12-APR-23 Active                                                               2
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                                  422     999.99 Savings                                            18-NOV-22 Active                                                               2
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                  403       6700 Loan                                               05-SEP-21 Closed                                                               3
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                  413        650 Savings                                            20-JUN-23 Active                                                               3
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                  423     543.21 Checking                                           14-FEB-23 Frozen                                                               3
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                                    404      980.2 Savings                                            13-JUL-22 Active                                                               4
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                              ACCOUNT_ID    BALANCE ACCT_TYPE                                          CREAT_DAT STATUS                                             FK_CUSTOMER_CUST_ID
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- -------------------------------------------------- ---------- ---------- -------------------------------------------------- --------- -------------------------------------------------- -------------------
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                                    414        120 Checking                                           01-SEP-22 Frozen                                                               4
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                                    417      875.4 Checking                                           05-OCT-22 Active                                                               4
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                                    405       3120 Checking                                           01-JAN-23 Active                                                               5
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                                    415       4200 Loan                                               03-MAR-21 Closed                                                               5
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                                    424       8200 Loan                                               01-JAN-21 Delinquent                                                           5
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                                   406       4900 Loan                                               15-DEC-21 Delinquent                                                           6
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                                   418       2400 Loan                                               01-DEC-20 Active                                                               6
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                                     407    1125.35 Savings                                            22-APR-22 Active                                                               7
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                                   408      305.6 Checking                                           09-AUG-22 Frozen                                                               8
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                                   419      130.2 Savings                                            01-JUL-23 Active                                                               8
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                                    409      15000 Loan                                               21-JUN-21 Active                                                               9
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                              ACCOUNT_ID    BALANCE ACCT_TYPE                                          CREAT_DAT STATUS                                             FK_CUSTOMER_CUST_ID
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- -------------------------------------------------- ---------- ---------- -------------------------------------------------- --------- -------------------------------------------------- -------------------
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                                    420      395.9 Checking                                           30-AUG-21 Closed                                                               9
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                                    410      220.1 Savings                                            11-MAR-23 Active                                                              10
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                                    421       7600 Loan                                               23-MAY-23 Active                                                              10
+
+25 rows selected. 
+
+SQL> 
+SQL> --Query 5: Select and order data retrieved from one table 
+SQL> -- Business purpose: this query select all information of all employee in ascending order based on employee name
+SQL> select * from employee order by f_name, l_name asc;
+
+    EMP_ID F_NAME                                             L_NAME                                             EMAIL                                              POSITION                                           HIRED_DAT FK_BRANCH_BR_ID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- --------- ---------------
+       201 Angela                                             White                                              awhite@example.com                                 Teller                                             01-APR-18             101
+       202 Ben                                                King                                               bking@example.com                                  Manager                                            15-MAR-17             102
+       203 Chris                                              Davis                                              cdavis@example.com                                 Clerk                                              22-JUN-19             103
+       204 Diana                                              Morris                                             dmorris@example.com                                Security                                           10-JAN-20             104
+       205 Ethan                                              Scott                                              escott@example.com                                 Teller                                             12-AUG-16             105
+       206 Fiona                                              Hill                                               fhill@example.com                                  Clerk                                              27-FEB-15             106
+       207 George                                             Young                                              gyoung@example.com                                 Manager                                            03-NOV-14             107
+       208 Hannah                                             Green                                              hgreen@example.com                                 Clerk                                              18-MAY-21             108
+       209 Ian                                                Lopez                                              ilopez@example.com                                 Teller                                             09-SEP-13             109
+       210 Judy                                               Turner                                             jturner@example.com                                Manager                                            12-DEC-12             110
+
+10 rows selected. 
+
+SQL> 
+SQL> --Query 6: Using a join on 3 tables, select 5 columns from the 3 tables. Use syntax that would limit the output to 10 rows
+SQL> -- Business purpose: this query joins information of attributes from customer, account and transaction limited to five attributes each and the first ten rows.
+SQL> select c.f_name as first_name, c.l_name as last_name, c.address, c.ph_number as phone_number, c.email, 
+  2         a.account_id as account_number, a.balance, a.acct_type as account_type, a.creat_date as creation_date, a.status,
+  3         t.transc_id as transaction_number, t.amount, t.transc_type as transaction_type, t.timestamp, t.description
+  4  from 
+  5      customer c join account a on c.cust_id = a.fk_customer_cust_id join transaction t on a.account_id = t.fk_account_account_id
+  6      fetch first 10 rows only;
+
+FIRST_NAME                                         LAST_NAME                                          ADDRESS                                                                                              PHONE_NUMB EMAIL                                              ACCOUNT_NUMBER    BALANCE ACCOUNT_TYPE                                       CREATION_ STATUS                                             TRANSACTION_NUMBER     AMOUNT TRANSACTION_TYPE                                   TIMESTAMP                       DESCRIPTION                                                                                                                                                                                             
+-------------------------------------------------- -------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------- -------------------------------------------------- -------------- ---------- -------------------------------------------------- --------- -------------------------------------------------- ------------------ ---------- -------------------------------------------------- ------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Alicia                                             Mills                                              19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                                      401     2300.5 Savings                                            10-JAN-22 Active                                                            601        200 Deposit                                            05-AUG-25 06.05.08.000000000 AM Initial deposit                                                                                                                                                                                         
+Alicia                                             Mills                                              19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                                      425        510 Savings                                            08-AUG-23 Active                                                            615        600 Transfer                                           05-AUG-25 06.05.08.000000000 AM Loan repayment                                                                                                                                                                                          
+Brian                                              Tucker                                             82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                                      402     150.75 Checking                                           22-MAR-22 Active                                                            602        100 Withdrawal                                         05-AUG-25 06.05.08.000000000 AM ATM withdrawal                                                                                                                                                                                          
+Clara                                              Nguyen                                             34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                      403       6700 Loan                                               05-SEP-21 Closed                                                            603        300 Transfer                                           05-AUG-25 06.05.08.000000000 AM Transfer to savings                                                                                                                                                                                     
+Clara                                              Nguyen                                             34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                      403       6700 Loan                                               05-SEP-21 Closed                                                            606         25 Withdrawal                                         05-AUG-25 06.05.08.000000000 AM ATM fee                                                                                                                                                                                                 
+Clara                                              Nguyen                                             34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                      403       6700 Loan                                               05-SEP-21 Closed                                                            609        120 Deposit                                            05-AUG-25 06.05.08.000000000 AM Cash deposit                                                                                                                                                                                            
+Clara                                              Nguyen                                             34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                      423     543.21 Checking                                           14-FEB-23 Frozen                                                            612        150 Withdrawal                                         05-AUG-25 06.05.08.000000000 AM ATM withdrawal                                                                                                                                                                                          
+Clara                                              Nguyen                                             34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                                      423     543.21 Checking                                           14-FEB-23 Frozen                                                            614         75 Withdrawal                                         05-AUG-25 06.05.08.000000000 AM POS purchase                                                                                                                                                                                            
+Derek                                              Ford                                               106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                                        404      980.2 Savings                                            13-JUL-22 Active                                                            604         50 Withdrawal                                         05-AUG-25 06.05.08.000000000 AM POS Purchase                                                                                                                                                                                            
+Ella                                               Brown                                              501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                                        405       3120 Checking                                           01-JAN-23 Active                                                            605       1000 Deposit                                            05-AUG-25 06.05.08.000000000 AM Salary                                                                                                                                                                                                  
+
+10 rows selected. 
+
+SQL> 
+SQL> --Query 7: Select distinct rows using joins on 3 tables 
+SQL> -- Business purpose: select all distinct information from branches, employees, operation after joining them.
+SQL> select distinct *
+  2  from branch b join employee e on b.br_id = e.fk_branch_br_id join operation o on b.br_id = o.fk_branch_br_id;
+
+     BR_ID BR_NAME                                            LOCATION                                           MGR_NAME                                           PH_NUMBER  EST_DATE      EMP_ID F_NAME                                             L_NAME                                             EMAIL                                              POSITION                                           HIRED_DAT FK_BRANCH_BR_ID DATE_CREATED                    CREATED_BY                                         CHANNEL                                            APPR_CODE                                          OP_STATUS                                          FK_BRANCH_BR_ID FK_TRANSACTION_TRANSC_ID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ---------- --------- ---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- --------- --------------- ------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- --------------- ------------------------
+       101 Downtown                                           New York                                           Alice Miles                                        2125551010 01-JAN-10        201 Angela                                             White                                              awhite@example.com                                 Teller                                             01-APR-18             101 05-AUG-25 06.05.08.000000000 AM Angela White                                       Teller                                             AP123                                              Approved                                                       101                      601
+       101 Downtown                                           New York                                           Alice Miles                                        2125551010 01-JAN-10        201 Angela                                             White                                              awhite@example.com                                 Teller                                             01-APR-18             101 05-AUG-25 06.05.08.000000000 AM Angela White                                       ATM                                                AP133                                              Approved                                                       101                      611
+       102 Midtown                                            Chicago                                            Brian Lee                                          3125551020 15-MAY-12        202 Ben                                                King                                               bking@example.com                                  Manager                                            15-MAR-17             102 05-AUG-25 06.05.08.000000000 AM Ben King                                           ATM                                                AP124                                              Completed                                                      102                      602
+       102 Midtown                                            Chicago                                            Brian Lee                                          3125551020 15-MAY-12        202 Ben                                                King                                               bking@example.com                                  Manager                                            15-MAR-17             102 05-AUG-25 06.05.08.000000000 AM Ben King                                           Online                                             AP134                                              Completed                                                      102                      612
+       103 Uptown                                             Houston                                            Carla Yu                                           7135551030 20-MAR-14        203 Chris                                              Davis                                              cdavis@example.com                                 Clerk                                              22-JUN-19             103 05-AUG-25 06.05.08.000000000 AM Chris Davis                                        Online                                             AP125                                              Approved                                                       103                      603
+       103 Uptown                                             Houston                                            Carla Yu                                           7135551030 20-MAR-14        203 Chris                                              Davis                                              cdavis@example.com                                 Clerk                                              22-JUN-19             103 05-AUG-25 06.05.08.000000000 AM Chris Davis                                        Teller                                             AP135                                              Approved                                                       103                      613
+       104 Central                                            Los Angeles                                        David Singh                                        2135551040 10-AUG-11        204 Diana                                              Morris                                             dmorris@example.com                                Security                                           10-JAN-20             104 05-AUG-25 06.05.08.000000000 AM Diana Morris                                       Teller                                             AP126                                              Rejected                                                       104                      604
+       104 Central                                            Los Angeles                                        David Singh                                        2135551040 10-AUG-11        204 Diana                                              Morris                                             dmorris@example.com                                Security                                           10-JAN-20             104 05-AUG-25 06.05.08.000000000 AM Diana Morris                                       ATM                                                AP136                                              Completed                                                      104                      614
+       105 Westside                                           San Diego                                          Eva Knight                                         6195551050 01-SEP-13        205 Ethan                                              Scott                                              escott@example.com                                 Teller                                             12-AUG-16             105 05-AUG-25 06.05.08.000000000 AM Ethan Scott                                        ATM                                                AP127                                              Approved                                                       105                      605
+       105 Westside                                           San Diego                                          Eva Knight                                         6195551050 01-SEP-13        205 Ethan                                              Scott                                              escott@example.com                                 Teller                                             12-AUG-16             105 05-AUG-25 06.05.08.000000000 AM Ethan Scott                                        Online                                             AP137                                              Approved                                                       105                      615
+       106 Southpoint                                         Miami                                              Fred Owen                                          3055551060 12-OCT-15        206 Fiona                                              Hill                                               fhill@example.com                                  Clerk                                              27-FEB-15             106 05-AUG-25 06.05.08.000000000 AM Fiona Hill                                         Online                                             AP128                                              Approved                                                       106                      606
+
+     BR_ID BR_NAME                                            LOCATION                                           MGR_NAME                                           PH_NUMBER  EST_DATE      EMP_ID F_NAME                                             L_NAME                                             EMAIL                                              POSITION                                           HIRED_DAT FK_BRANCH_BR_ID DATE_CREATED                    CREATED_BY                                         CHANNEL                                            APPR_CODE                                          OP_STATUS                                          FK_BRANCH_BR_ID FK_TRANSACTION_TRANSC_ID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ---------- --------- ---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- --------- --------------- ------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- --------------- ------------------------
+       106 Southpoint                                         Miami                                              Fred Owen                                          3055551060 12-OCT-15        206 Fiona                                              Hill                                               fhill@example.com                                  Clerk                                              27-FEB-15             106 05-AUG-25 06.05.08.000000000 AM Fiona Hill                                         Teller                                             AP138                                              Rejected                                                       106                      601
+       107 Riverside                                          Denver                                             Grace Patel                                        3035551070 21-JUL-16        207 George                                             Young                                              gyoung@example.com                                 Manager                                            03-NOV-14             107 05-AUG-25 06.05.08.000000000 AM George Young                                       Teller                                             AP129                                              Completed                                                      107                      607
+       107 Riverside                                          Denver                                             Grace Patel                                        3035551070 21-JUL-16        207 George                                             Young                                              gyoung@example.com                                 Manager                                            03-NOV-14             107 05-AUG-25 06.05.08.000000000 AM George Young                                       ATM                                                AP139                                              Pending                                                        107                      602
+       108 Northend                                           Seattle                                            Henry Kim                                          2065551080 14-FEB-18        208 Hannah                                             Green                                              hgreen@example.com                                 Clerk                                              18-MAY-21             108 05-AUG-25 06.05.08.000000000 AM Hannah Green                                       ATM                                                AP130                                              Approved                                                       108                      608
+       108 Northend                                           Seattle                                            Henry Kim                                          2065551080 14-FEB-18        208 Hannah                                             Green                                              hgreen@example.com                                 Clerk                                              18-MAY-21             108 05-AUG-25 06.05.08.000000000 AM Hannah Green                                       Online                                             AP140                                              Completed                                                      108                      603
+       109 Eastside                                           Atlanta                                            Isla Brown                                         4045551090 25-APR-17        209 Ian                                                Lopez                                              ilopez@example.com                                 Teller                                             09-SEP-13             109 05-AUG-25 06.05.08.000000000 AM Ian Lopez                                          Online                                             AP131                                              Approved                                                       109                      609
+       109 Eastside                                           Atlanta                                            Isla Brown                                         4045551090 25-APR-17        209 Ian                                                Lopez                                              ilopez@example.com                                 Teller                                             09-SEP-13             109 05-AUG-25 06.05.08.000000000 AM Ian Lopez                                          Teller                                             AP141                                              Approved                                                       109                      604
+       110 Metro                                              Boston                                             Jack Chen                                          6175551100 31-DEC-19        210 Judy                                               Turner                                             jturner@example.com                                Manager                                            12-DEC-12             110 05-AUG-25 06.05.08.000000000 AM Judy Turner                                        Teller                                             AP132                                              Pending                                                        110                      610
+       110 Metro                                              Boston                                             Jack Chen                                          6175551100 31-DEC-19        210 Judy                                               Turner                                             jturner@example.com                                Manager                                            12-DEC-12             110 05-AUG-25 06.05.08.000000000 AM Judy Turner                                        ATM                                                AP142                                              Approved                                                       110                      605
+
+20 rows selected. 
+
+SQL> 
+SQL> --Query 8: Use GROUP BY and HAVING in a select statement using one or more tables 
+SQL> -- Business purpose: select all information from accounts that are grouped by account type where the totals by per account type is greater than 1000.00
+SQL> select acct_type as account_type, sum(balance) as total_balance from account group by acct_type having sum(balance) > 1000.00;
+
+ACCOUNT_TYPE                                       TOTAL_BALANCE
+-------------------------------------------------- -------------
+Savings                                                  8496.64
+Checking                                                 6216.76
+Loan                                                       58900
+
+SQL> 
+SQL> --Query 9: Use IN clause to select data from one or more tables 
+SQL> -- Business purpose: select all information of three attributes after joining accounts and transactions.
+SQL> select a.balance, a.acct_type as account_type, a.status, t.amount, t.transc_type as transaction_type, t.description
+  2  from account a join transaction t on a.account_id = t.fk_account_account_id 
+  3  where transc_type in ('Deposit', 'Withdrawal');
+
+   BALANCE ACCOUNT_TYPE                                       STATUS                                                 AMOUNT TRANSACTION_TYPE                                   DESCRIPTION                                                                                                                                                                                             
+---------- -------------------------------------------------- -------------------------------------------------- ---------- -------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    2300.5 Savings                                            Active                                                    200 Deposit                                            Initial deposit                                                                                                                                                                                         
+    150.75 Checking                                           Active                                                    100 Withdrawal                                         ATM withdrawal                                                                                                                                                                                          
+      6700 Loan                                               Closed                                                     25 Withdrawal                                         ATM fee                                                                                                                                                                                                 
+      6700 Loan                                               Closed                                                    120 Deposit                                            Cash deposit                                                                                                                                                                                            
+     980.2 Savings                                            Active                                                     50 Withdrawal                                         POS Purchase                                                                                                                                                                                            
+      3120 Checking                                           Active                                                   1000 Deposit                                            Salary                                                                                                                                                                                                  
+   1125.35 Savings                                            Active                                                    500 Deposit                                            Freelance payment                                                                                                                                                                                       
+     220.1 Savings                                            Active                                                    200 Withdrawal                                         Bill payment                                                                                                                                                                                            
+      4200 Loan                                               Closed                                                    500 Deposit                                            Initial deposit                                                                                                                                                                                         
+    543.21 Checking                                           Frozen                                                    150 Withdrawal                                         ATM withdrawal                                                                                                                                                                                          
+    543.21 Checking                                           Frozen                                                     75 Withdrawal                                         POS purchase                                                                                                                                                                                            
+
+11 rows selected. 
+
+SQL> 
+SQL> --Query 10: Select length of one column from one table (use LENGTH function) 
+SQL> -- Business purpose: this query calculates the length of the name of employees who execute transactions.
+SQL> select length(created_by) as name_length from operation;
+
+NAME_LENGTH
+-----------
+         12
+         12
+          8
+          8
+         11
+         11
+         12
+         12
+         11
+         11
+         10
+
+NAME_LENGTH
+-----------
+         10
+         12
+         12
+         12
+         12
+          9
+          9
+         11
+         11
+
+20 rows selected. 
+
+SQL> 
+SQL> --Query 11: Delete one record from one table. Use select statements to demonstrate the table contents before and after the DELETE statement. 
+SQL> -- Make sure you use ROLLBACK afterwards so that the data will not be physically removed
+SQL> -- Business purpose: this query delete a record of information from customer data, then rollback the deleted record.
+SQL> select * from customer;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                             
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- --------------------------------------------------
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                          
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                          
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                          
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                            
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                            
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                           
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                             
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                           
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                            
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                            
+
+10 rows selected. 
+
+SQL> delete from customer where cust_id = 1;
+
+1 row deleted.
+
+SQL> select * from customer;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                             
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- --------------------------------------------------
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                          
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                          
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                            
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                            
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                           
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                             
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                           
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                            
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                            
+
+9 rows selected. 
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> 
+SQL> --Query 12: Update one record from one table. Use select statements to demonstrate the table contents before and after the UPDATE statement. 
+SQL> -- Make sure you use ROLLBACK afterwards so that the data will not be physically removed 
+SQL> -- Business purpose: this query changes the first name and last name of the record that has cutomer id set to 1 from customer data, then rollback to initial values.
+SQL> select * from customer;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                             
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- --------------------------------------------------
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                          
+         2 Brian                                              Tucker                                             07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                          
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                          
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                            
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                            
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                           
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                             
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                           
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                            
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                            
+
+10 rows selected. 
+
+SQL> update customer set f_name = 'Donald', l_name = 'Keita' where cust_id = 2;
+
+1 row updated.
+
+SQL> select * from customer;
+
+   CUST_ID F_NAME                                             L_NAME                                             DOB       ADDRESS                                                                                              PH_NUMBER  EMAIL                                             
+---------- -------------------------------------------------- -------------------------------------------------- --------- ---------------------------------------------------------------------------------------------------- ---------- --------------------------------------------------
+         1 Alicia                                             Mills                                              24-MAY-91 19 Garden Ave, Austin                                                                                5125551001 alicia.mills@example.com                          
+         2 Donald                                             Keita                                              07-NOV-88 82 Ridge Rd, Denver                                                                                  3035554521 brian.tucker@example.com                          
+         3 Clara                                              Nguyen                                             16-FEB-95 34 Willow St, Seattle                                                                                2065553122 clara.nguyen@example.com                          
+         4 Derek                                              Ford                                               12-SEP-90 106 Main Blvd, Miami                                                                                 7865559982 derek.ford@example.com                            
+         5 Ella                                               Brown                                              04-MAR-86 501 Pacific St, Portland                                                                             5035557411 ella.brown@example.com                            
+         6 Frank                                              Lopez                                              19-JUL-93 212 Walnut Ln, Chicago                                                                               7735552188 frank.lopez@example.com                           
+         7 Grace                                              Kim                                                02-DEC-89 45 Sunset Ave, LA                                                                                    2135553011 grace.kim@example.com                             
+         8 Henry                                              Singh                                              28-JUN-92 87 Liberty St, Boston                                                                                6175559003 henry.singh@example.com                           
+         9 Isla                                               Patel                                              10-AUG-94 15 Beacon Way, New York                                                                              7185556020 isla.patel@example.com                            
+        10 Jack                                               Davis                                              05-OCT-96 68 Pine Circle, Dallas                                                                               2145557777 jack.davis@example.com                            
+
+10 rows selected. 
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> 
+SQL> --Perform 8 Additional Advanced Queries 
+SQL> 
+SQL> -- Query 13: use GROUP BY count the number of branch in each location from view called "view_br_performance"
+SQL> -- Business purpose: this query computes the number of branch by location from already created view, "view_br_performance"
+SQL> select location, count(br_name) as "BRANCHES PER LOCATION" from view_br_performance group by location ;
+
+LOCATION                                           BRANCHES PER LOCATION
+-------------------------------------------------- ---------------------
+Miami                                                                  1
+Los Angeles                                                            2
+San Diego                                                              1
+Atlanta                                                                1
+Denver                                                                 2
+Chicago                                                                1
+Boston                                                                 2
+New York                                                               2
+Seattle                                                                1
+Houston                                                                1
+
+10 rows selected. 
+
+SQL> 
+SQL> -- Query 14: use GROUP BY to show the number transaction per customer
+SQL> -- Business purpose: this query compute the number of transaction carried out by customer
+SQL> select c.f_name as "First Name", c.l_name as "Last Name", count(transc_id) as "Number of Transaction"
+  2  from customer c join account a on c.cust_id = a.fk_customer_cust_id join transaction t on a.account_id = t.fk_account_account_id
+  3  group by c.f_name, c.l_name;
+
+First Name                                         Last Name                                          Number of Transaction
+-------------------------------------------------- -------------------------------------------------- ---------------------
+Alicia                                             Mills                                                                  2
+Brian                                              Tucker                                                                 1
+Clara                                              Nguyen                                                                 5
+Derek                                              Ford                                                                   1
+Ella                                               Brown                                                                  2
+Grace                                              Kim                                                                    1
+Henry                                              Singh                                                                  1
+Isla                                               Patel                                                                  1
+Jack                                               Davis                                                                  1
+
+9 rows selected. 
+
+SQL> 
+SQL> -- Query 15:show the five active account that were lastly created ORDER BY and FIRST n ROWS ONLY 
+SQL> -- Business purpose: this query select the last five created account that are still active
+SQL> select account_id as "Account number", creat_date as "Creation Date", status as "Status" 
+  2  from account where status = 'Active' order by creat_date desc fetch first 5 rows only;
+
+Account number Creation  Status                                            
+-------------- --------- --------------------------------------------------
+           425 08-AUG-23 Active                                            
+           419 01-JUL-23 Active                                            
+           413 20-JUN-23 Active                                            
+           421 23-MAY-23 Active                                            
+           416 12-APR-23 Active                                            
+
+SQL> 
+SQL> -- Query 16: Show the five first customers who two account by using JOIN and operator NOT IN.
+SQL> -- Business purpose: this query show information about customer who have both Checking and Savings accounts
+SQL> select c.f_name || ' ' || c.l_name as "Customer Name", account_id as "Account number", a.acct_type as "Account Type"
+  2  from customer c join account a on c.cust_id = a.fk_customer_cust_id
+  3  where a.acct_type not in ('Loan');
+
+Customer Name                                                                                         Account number Account Type                                      
+----------------------------------------------------------------------------------------------------- -------------- --------------------------------------------------
+Alicia Mills                                                                                                     401 Savings                                           
+Alicia Mills                                                                                                     411 Checking                                          
+Alicia Mills                                                                                                     425 Savings                                           
+Brian Tucker                                                                                                     402 Checking                                          
+Brian Tucker                                                                                                     416 Savings                                           
+Brian Tucker                                                                                                     422 Savings                                           
+Clara Nguyen                                                                                                     413 Savings                                           
+Clara Nguyen                                                                                                     423 Checking                                          
+Derek Ford                                                                                                       404 Savings                                           
+Derek Ford                                                                                                       414 Checking                                          
+Derek Ford                                                                                                       417 Checking                                          
+
+Customer Name                                                                                         Account number Account Type                                      
+----------------------------------------------------------------------------------------------------- -------------- --------------------------------------------------
+Ella Brown                                                                                                       405 Checking                                          
+Grace Kim                                                                                                        407 Savings                                           
+Henry Singh                                                                                                      408 Checking                                          
+Henry Singh                                                                                                      419 Savings                                           
+Isla Patel                                                                                                       420 Checking                                          
+Jack Davis                                                                                                       410 Savings                                           
+
+17 rows selected. 
+
+SQL> 
+SQL> -- Query 17: use JOIN and HAVING to aggregate the total amount of transaction per account.
+SQL> -- Business purpose: this query the total amount of transaction per account with a total of more $500.
+SQL> select a.account_id, sum(t.amount)
+  2  from account a join transaction t on a.account_id = t.fk_account_account_id
+  3  group by a.account_id having sum(t.amount) > 500;
+
+ACCOUNT_ID SUM(T.AMOUNT)
+---------- -------------
+       405          1000
+       425           600
+
+SQL> 
+SQL> -- Query 18: use LEFT JOIN to show all information all transaction and those done at branch
+SQL> -- Business purpose: this script show transaction information along with the one that
+SQL> select tp.fk_account_account_id as "ACCOUNT NUMBER", tp.amount, tp.description, tp.channel
+  2  from 
+  3      (select t.fk_account_account_id, t.amount, t.description, o.channel
+  4      from transaction t left join operation o on t.transc_id = o.fk_transaction_transc_id
+  5      where o.channel in ('ATM', 'Teller')) tp;
+
+ACCOUNT NUMBER     AMOUNT DESCRIPTION                                                                                                                                                                                              CHANNEL                                           
+-------------- ---------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------
+           401        200 Initial deposit                                                                                                                                                                                          Teller                                            
+           401        200 Initial deposit                                                                                                                                                                                          Teller                                            
+           402        100 ATM withdrawal                                                                                                                                                                                           ATM                                               
+           402        100 ATM withdrawal                                                                                                                                                                                           ATM                                               
+           404         50 POS Purchase                                                                                                                                                                                             Teller                                            
+           404         50 POS Purchase                                                                                                                                                                                             Teller                                            
+           405       1000 Salary                                                                                                                                                                                                   ATM                                               
+           405       1000 Salary                                                                                                                                                                                                   ATM                                               
+           407        500 Freelance payment                                                                                                                                                                                        Teller                                            
+           408         75 Transfer to friend                                                                                                                                                                                       ATM                                               
+           410        200 Bill payment                                                                                                                                                                                             Teller                                            
+
+ACCOUNT NUMBER     AMOUNT DESCRIPTION                                                                                                                                                                                              CHANNEL                                           
+-------------- ---------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------
+           415        500 Initial deposit                                                                                                                                                                                          ATM                                               
+           420        300 Transfer to savings                                                                                                                                                                                      Teller                                            
+           423         75 POS purchase                                                                                                                                                                                             ATM                                               
+
+14 rows selected. 
+
+SQL> 
+SQL> -- Query 19: use SUBQUERY to show the name and location who carried out operations that have "Rejected" status
+SQL> -- Business purpose:this query select employees that assisted customers resulting in rejected operations and the locations and branches where they work
+SQL> select e.f_name as "First Name", e.l_name as "Last Name",
+  2      (select b.location 
+  3       from branch b 
+  4       where b.br_id = e.fk_branch_br_id) as "Branch Location"
+  5  from employee e
+  6  where e.f_name || ' ' || e.l_name in (
+  7          select o.created_by
+  8          from operation o
+  9          where o.op_status = 'Rejected'
+ 10      );
+
+First Name                                         Last Name                                          Branch Location                                   
+-------------------------------------------------- -------------------------------------------------- --------------------------------------------------
+Diana                                              Morris                                             Los Angeles                                       
+Fiona                                              Hill                                               Miami                                             
+
+SQL> 
+SQL> -- Query 20: use JOIN Customer, Account, Transaction and Operation tables to show customers who carried out operation where 
+SQL> --           transaction_type is "Withdrawal" and channel is "ATM"
+SQL> -- Business purpose: this query select all customers that withdraw money from ATM machines
+SQL> select c.f_name || ' ' || c.l_name as "Customer Name", t.transc_type as "Transaction Type", o.channel as "Channel", t.amount as "Amount"
+  2  from customer c join account a on c.cust_id = a.fk_customer_cust_id join transaction t on a.account_id = t.fk_account_account_id
+  3       join operation o on t.transc_id = o.fk_transaction_transc_id
+  4  where t.transc_type = 'Withdrawal' and o.channel = 'ATM';
+
+Customer Name                                                                                         Transaction Type                                   Channel                                                Amount
+----------------------------------------------------------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+Brian Tucker                                                                                          Withdrawal                                         ATM                                                       100
+Brian Tucker                                                                                          Withdrawal                                         ATM                                                       100
+Clara Nguyen                                                                                          Withdrawal                                         ATM                                                        75
+
