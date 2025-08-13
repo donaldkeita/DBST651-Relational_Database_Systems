@@ -16,16 +16,16 @@
  Students will be asked to design and implement a database of your choice (Banking Transaction Management System).
  TOTAL WEIGHT: Project is worth 40% of your final grade.
  
- The project has four steps -  
+ The project has four steps - <br> 
 STEP 1 (4%) - Write a 1-2 page Statement of Work (SOW) to describe the need to create, design and
- implement the database that you propose for your project.
+ implement the database that you propose for your project.<br>
 STEP 2 (4%) - Create requirement definition document and use ER Assistant, Visio, or SQL Developer Data
- Modeler to create Entity Relationship Diagram (ERD) for your project.
- Tools used: ER Assistant for the ERD diagram and Oracle SQL Developer for the Oracle SQL based DDL and DML
+ Modeler to create Entity Relationship Diagram (ERD) for your project.<br>
+ Tools used: ER Assistant for the ERD diagram and Oracle SQL Developer for the Oracle SQL based DDL and DML<br>
 STEP 3 (16%) - Use SQL DDL statements to create your tables/views/triggers and other required database
  objects for you project. Also include queries (select statements on database catalog/data dictionary such as
- user_objects and user_tables) to demonstrate all objects are created successfully.
+ user_objects and user_tables) to demonstrate all objects are created successfully.<br>
 STEP 4 (16%) - Use SQL DML statements to insert sample data into your tables. Use SQL SELECT
- statements to query your data. 
+ statements to query your data.<br>
 You will create a technical report that outlines all the steps and studies conducted in implementing the
  project.
